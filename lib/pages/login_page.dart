@@ -2,9 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/utils/routes.dart';
 
 // ignore: camel_case_types
-class loginPage extends StatelessWidget {
+class loginPage extends StatefulWidget {
   const loginPage({super.key});
 
+  @override
+  State<loginPage> createState() => _loginPageState();
+}
+
+// ignore: camel_case_types
+class _loginPageState extends State<loginPage> {
+    bool changeButton=false;
+    String name ="";
   
   @override
   Widget build(BuildContext context) {
@@ -21,7 +29,9 @@ class loginPage extends StatelessWidget {
         
              
               
-              const Text("Welcome",style: TextStyle(
+               Text("Welcome $name",
+              
+              style: const TextStyle(
                   fontSize: 25,
                   fontWeight: FontWeight.bold
         
@@ -45,7 +55,13 @@ class loginPage extends StatelessWidget {
                     labelText: "User Name",
                     hintText: "Enter Your Name Here"
                   ),
-              
+
+                  onChanged: (value) {name=value;
+
+                    setState(() {});
+                  
+                  },        
+
                 ),
               
         
@@ -65,16 +81,59 @@ class loginPage extends StatelessWidget {
         
               ),
         
-            ElevatedButton(
-             // ignore: sort_child_properties_last
-             child: const Text("Login"),
-             style: TextButton.styleFrom(minimumSize: const Size(75, 50)),
-             onPressed: (){
-              Navigator.pushNamed(context, MyRoutes.homeRoute);
+
+            InkWell(
+
+              onTap: () async {
+                setState(() {
+                  changeButton=true;
+                });
+
+                await Future.delayed(Duration(seconds: 1)); 
+                Navigator.pushNamed(context, MyRoutes.homeRoute);
+                }, 
+
+              child: AnimatedContainer(
+                duration: const Duration(seconds: 1),
+                height: 40,
+                width: changeButton?50 : 150,
+                alignment: Alignment.center,
+                // ignore: sort_child_properties_last
+                child: changeButton?const Icon(Icons.done, color:  Colors.white): const Text("Login",style: TextStyle(
+                  color: Colors.white,
+                  fontWeight:FontWeight.bold,
+                   fontSize: 18
+                  
+                  ),
+                  
+                   ),
+              
+                   decoration: BoxDecoration(
+
+                      color: Colors.deepPurple,
+                      // shape: changeButton
+                      // ? BoxShape.circle
+                      // :BoxShape.rectangle,
+
+                      borderRadius: BorderRadius.circular(changeButton? 50 : 8)
+              
+                   ),
+              
+              ),
+            ),
+
+
+
+            // ElevatedButton(
+            //  // ignore: sort_child_properties_last
+            //  child: const Text("Login"),
+            //  style: TextButton.styleFrom(minimumSize: const Size(75, 50)),
+            //  onPressed: (){
+            //   Navigator.pushNamed(context, MyRoutes.homeRoute);
         
-             },
+            //  },
              
-             )
+            //  )
         
                 ],
               ),
