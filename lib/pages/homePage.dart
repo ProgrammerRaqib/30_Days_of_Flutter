@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/widgets/drawer.dart';
 
 // ignore: must_be_immutable
 class HomePage1 extends StatelessWidget {
@@ -13,7 +14,7 @@ int day=1;
     return  Scaffold(
       appBar: AppBar(
         title: const Text("Home Page"),
-backgroundColor: Colors.blue,
+backgroundColor: Colors.deepPurple,
       ),
   body: Center(
     // ignore: avoid_unnecessary_containers
@@ -22,7 +23,7 @@ backgroundColor: Colors.blue,
       
       ),
   ),
-  drawer: const Drawer(),
+  drawer: const MyDrawer(),
 );
   }
 }

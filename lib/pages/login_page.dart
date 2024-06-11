@@ -107,7 +107,7 @@ class _loginPageState extends State<loginPage> {
                     if(value!.isEmpty){
                     return "Password can't be Null";
                     }
-                    else if(value!.length <4 ){
+                    else if(value.length <4 ){
                       return "Choose a Stronger PassWord";
                     }
                          return null;
