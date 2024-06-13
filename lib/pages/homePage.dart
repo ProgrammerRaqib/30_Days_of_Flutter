@@ -1,9 +1,13 @@
+
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/widgets/buttom_navigation.dart';
 import 'package:flutter_application_1/widgets/drawer.dart';
 
 // ignore: must_be_immutable
 class HomePage1 extends StatelessWidget {
   
+
+
 
 int day=1;
 
@@ -14,7 +18,7 @@ int day=1;
     return  Scaffold(
       appBar: AppBar(
         title: const Text("Home Page"),
-backgroundColor: Colors.deepPurple,
+backgroundColor: Colors.lightBlue,
       ),
   body: Center(
     // ignore: avoid_unnecessary_containers
@@ -24,6 +28,11 @@ backgroundColor: Colors.deepPurple,
       ),
   ),
   drawer: const MyDrawer(),
+
+  bottomNavigationBar: const MyButtomNavigationBar(),
+
+floatingActionButton: FloatingActionButton(child: const Icon(Icons.shopping_cart),onPressed: (){}),
+
 );
   }
 }

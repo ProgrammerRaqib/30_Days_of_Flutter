@@ -81,6 +81,10 @@ class _loginPageState extends State<loginPage> {
                     if(value!.isEmpty){
                     return "User Name can't be Null";
                     }
+                    else if(value!="Raqib"){
+                      return "Incorrect User ID";
+                      
+                    }
                     return null;
                   },
           
@@ -110,6 +114,13 @@ class _loginPageState extends State<loginPage> {
                     else if(value.length <4 ){
                       return "Choose a Stronger PassWord";
                     }
+
+                    if(value!="1234"){
+
+                        return "icorrect Password";
+
+                    }
+
                          return null;
 
                   },
@@ -183,6 +194,9 @@ class _loginPageState extends State<loginPage> {
           ),
         ),
       )
+
+  //floatingActionButton: FloatingActionButton(child: const Icon(Icons.shopping_cart),onPressed: (){}),
+
 
     );
   }
